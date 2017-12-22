@@ -1,0 +1,28 @@
+app_cliente:
+    resource: "@AppBundle/Resources/config/routing/cliente.yml"
+    prefix:   /cliente
+
+app_estadopedido:
+    resource: "@AppBundle/Resources/config/routing/estadopedido.yml"
+    prefix:   /estadopedido
+
+
+app_pedido:
+    resource: "@AppBundle/Resources/config/routing/pedido.yml"
+    prefix:   /pedido
+
+app_pizza:
+    resource: "@AppBundle/Resources/config/routing/pizza.yml"
+    prefix:   /pizza
+
+
+
+app_tamanopizza:
+    resource: "@AppBundle/Resources/config/routing/tamanopizza.yml"
+    prefix:   /tamanopizza
+
+
+
+app_pizzapedido:
+    resource: "@AppBundle/Resources/config/routing/pizzapedido.yml"
+    prefix:   /pizzapedido

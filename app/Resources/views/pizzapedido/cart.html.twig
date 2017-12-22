@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block styleshetts %}
+    {{  parent() }}
+
+    <link rel="stylesheet" href="{{asset('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+
+{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Tu carrito
+            <small>Lista de todos los productos seleccionados</small>
+        </h1>
+        <ol class="breadcrumb">
+            <div class="margin pull-right">
+                <div class="btn-group">
+                    <a type="button" href="{{ path('pizza_index') }}" class="btn btn-warning">Volver</a>
+                </div>
+
+                <div class="btn-group">
+                    <a href="{{ path('pizzapedido_confirma') }}" class="btn btn-danger">Confirmar pedido</a>
+                </div>
+            </div>
+        </ol>
+        <br>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% set total = 0 %}
+                            {% for pizza in cart %}
+                                <tr>
+                                    <td> {{ pizza.nombre }}</td>
+                                    <td> {{ pizza.descripcion }}</td>
+                                    <td> {{ pizza.precio }}</td>
+                                    {% set total =  total + pizza.precio %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <h3>Precio total: ${{ total }}</h3>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{  parent() }}
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+        })
+    </script>
+
+{% endblock %}

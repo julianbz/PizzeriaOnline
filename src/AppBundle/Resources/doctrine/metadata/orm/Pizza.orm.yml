@@ -1,0 +1,48 @@
+Pizza:
+    type: entity
+    table: Pizza
+    indexes:
+        idTamanoPizza_idx:
+            columns:
+                - idTamanoPizza
+    id:
+        idpizza:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idPizza
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        precio:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        descripcion:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        idtamanopizza:
+            targetEntity: Tamanopizza
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idTamanoPizza:
+                    referencedColumnName: idTamanoPizza
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Pedidos
+            <small>Lista de todos los pedidos realizados</small>
+        </h1>
+        <ol class="breadcrumb">
+            <div class="margin pull-right">
+                <div class="btn-group">
+                    <a href="/pizza" class="btn btn-warning">Crear un nuevo pedido</a>
+                </div>
+            </div>
+        </ol>
+    </section>
+    <br>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Idpedido</th>
+                                    <th>Cliente</th>
+                                    <th>Direccion de envio</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Detalle</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pedido in pedidos %}
+                                    <tr>
+                                        <td><a href="{{ path('pedido_show', { 'idpedido': pedido.idpedido }) }}">{{ pedido.idpedido }}</a></td>
+                                        <td> NULL</td>
+                                        <td> NULL</td>
+                                        <td>{% if pedido.fecha %}{{ pedido.fecha|date('Y-m-d') }}{% endif %}</td>
+                                        <td>{{ pedido.idEstadoPedido.nombre }}</td>
+                                        <td>
+                                            {% for pizzapedido in pizzapedidos %}
+                                                {% if pedido.idpedido == pizzapedido.idPedido.idPedido %}
+                                                        {{ pizzapedido.idPizza.nombre }}
+                                                    <br>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                        </td>
+                                            <td>
+                                                <ul>
+                                                        {#<a href="{{ path('pedido_show', { 'idpedido': pedido.idpedido }) }}" class="btn btn-warning">Ver</a>#}
+
+                                                        <a href="{{ path('pedido_edit', { 'idpedido': pedido.idpedido }) }}" class="btn btn-warning">Editar</a>
+
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

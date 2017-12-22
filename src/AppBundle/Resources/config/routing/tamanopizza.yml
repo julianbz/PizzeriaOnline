@@ -1,0 +1,24 @@
+tamanopizza_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Tamanopizza:index" }
+    methods:  GET
+
+tamanopizza_show:
+    path:     /{idtamanopizza}/show
+    defaults: { _controller: "AppBundle:Tamanopizza:show" }
+    methods:  GET
+
+tamanopizza_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Tamanopizza:new" }
+    methods:  [GET, POST]
+
+tamanopizza_edit:
+    path:     /{idtamanopizza}/edit
+    defaults: { _controller: "AppBundle:Tamanopizza:edit" }
+    methods:  [GET, POST]
+
+tamanopizza_delete:
+    path:     /{idtamanopizza}/delete
+    defaults: { _controller: "AppBundle:Tamanopizza:delete" }
+    methods:  DELETE

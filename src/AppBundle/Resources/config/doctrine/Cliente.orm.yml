@@ -1,0 +1,27 @@
+AppBundle\Entity\Cliente:
+    type: entity
+    table: Cliente
+    id:
+        idcliente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idCliente
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        direccion:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tamanopizzas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idtamanopizza</th>
+                <th>Nombre</th>
+                <th>Cantporciones</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tamanopizza in tamanopizzas %}
+            <tr>
+                <td><a href="{{ path('tamanopizza_show', { 'idtamanopizza': tamanopizza.idtamanopizza }) }}">{{ tamanopizza.idtamanopizza }}</a></td>
+                <td>{{ tamanopizza.nombre }}</td>
+                <td>{{ tamanopizza.cantporciones }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tamanopizza_show', { 'idtamanopizza': tamanopizza.idtamanopizza }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tamanopizza_edit', { 'idtamanopizza': tamanopizza.idtamanopizza }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tamanopizza_new') }}">Create a new tamanopizza</a>
+        </li>
+    </ul>
+{% endblock %}

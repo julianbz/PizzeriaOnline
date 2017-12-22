@@ -1,0 +1,42 @@
+AppBundle\Entity\Pizzapedido:
+    type: entity
+    table: PizzaPedido
+    indexes:
+        idPizza_idx:
+            columns:
+                - idPizza
+        idPedido_idx:
+            columns:
+                - idPedido
+    id:
+        idpizzapedido:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idPizzaPedido
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idpedido:
+            targetEntity: Pedido
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idPedido:
+                    referencedColumnName: idPedido
+            orphanRemoval: false
+        idpizza:
+            targetEntity: Pizza
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idPizza:
+                    referencedColumnName: idPizza
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

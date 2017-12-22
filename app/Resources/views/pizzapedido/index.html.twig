@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+{% block styleshetts %}
+    {{  parent() }}
+
+    <link rel="stylesheet" href="{{asset('asset/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+
+{% endblock %}
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Detalle del pedido
+            <small>Elementos pertenecientes a un pedido</small>
+        </h1>
+        <ol class="breadcrumb">
+            <div class="margin pull-right">
+                <div class="btn-group">
+                    <a href="/pizza" class="btn btn-warning">Crear un nuevo pedido</a>
+                </div>
+            </div>
+        </ol>
+    </section>
+    <br>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                <tr>
+                                    <th>Pedido ID </th>
+                                    <th>Producto</th>
+                                    <th class="pull-right">Acciones    </th>
+                                    <th> </th>
+                                </tr>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pizzapedido in pizzapedidos %}
+                                        <tr>
+                                            <td>{{ pizzapedido.idPedido.idPedido }}</td>
+
+                                            <td>{{ pizzapedido.idPizza.nombre }}</td>
+
+                                            <td>
+
+                                                <ul class="pull-right">
+                                                    <a href="{{ path('pizzapedido_show', { 'idpizzapedido': pizzapedido.idpizzapedido }) }}" class="btn btn-warning">Ver</a>
+                                                </ul>
+                                                {#<ul class="pull-right">#}
+                                                    {#<a href="{{ path('pizzapedido_edit', { 'idpizzapedido': pizzapedido.idpizzapedido }) }}" class="btn btn-warning">Editar</a>#}
+                                                {#</ul>#}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{  parent() }}
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+        })
+    </script>
+
+{% endblock %}
+

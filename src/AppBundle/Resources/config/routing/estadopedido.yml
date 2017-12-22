@@ -1,0 +1,24 @@
+estadopedido_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Estadopedido:index" }
+    methods:  GET
+
+estadopedido_show:
+    path:     /{idestadopedido}/show
+    defaults: { _controller: "AppBundle:Estadopedido:show" }
+    methods:  GET
+
+estadopedido_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Estadopedido:new" }
+    methods:  [GET, POST]
+
+estadopedido_edit:
+    path:     /{idestadopedido}/edit
+    defaults: { _controller: "AppBundle:Estadopedido:edit" }
+    methods:  [GET, POST]
+
+estadopedido_delete:
+    path:     /{idestadopedido}/delete
+    defaults: { _controller: "AppBundle:Estadopedido:delete" }
+    methods:  DELETE

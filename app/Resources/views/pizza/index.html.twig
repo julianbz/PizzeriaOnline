@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block styleshetts %}
+    {{  parent() }}
+
+    {#<link rel="stylesheet" href="{{asset('asset/dist/css/skins/_all-skins.min.css') }}">#}
+    {#<link rel="stylesheet" href="{{asset('asset/css/jquery.easy-gallery.css') }}">#}
+    {#<link rel="stylesheet" href="{{asset('asset/css/style.css') }}">#}
+
+
+
+
+{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Pizzas
+            <small>Lista de todas las variedades disponibles</small>
+        </h1>
+        <ol class="breadcrumb">
+            <div class="margin pull-right">
+                <div class="btn-group">
+                    <a href="{{ path('pizza_new') }}" class="btn btn-warning">Agregar una nueva variedad</a>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ path('pizzapedido_cart') }}" class="btn btn-danger">Ver Carrito</a>
+                </div>
+            </div>
+        </ol>
+    </section>
+
+    <br>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+
+            <div id="gallery" class="portfolio">
+                <div class="container">
+
+                    <div class="sap_tabs">
+                        <div id="horizontalTab">
+
+                            <div class="resp-tabs-container">
+                                <div class="tab-1 resp-tab-content">
+
+        {% for pizza in pizzas %}
+            <tr>
+
+                <div class="col-md-4 portfolio-grids">
+                    <div class="sc-product-item thumbnail">
+                        <img src='asset/images/ga7.jpg' data-big-src='asset/images/ga1.jpg' class="img-responsive" alt=" "/>
+                        <div class="caption">
+                            <h4 data-name="product_name">Pizza {{ pizza.nombre }}</h4>
+                            <p data-name="product_desc">{{ pizza.descripcion }}</p>
+                            <hr class="line">
+                            <div>
+                                <strong class="price pull-left">${{ pizza.precio }}</strong>
+                                <input name="product_price" value="2990.50" type="hidden" />
+                                <input name="product_id" value="12" type="hidden" />
+                                <a href="{{ path('pizza_show', { 'idpizza': pizza.idpizza }) }}" class="btn btn-primary">Ver</a>
+                                <a href="{{ path('pizza_edit', { 'idpizza': pizza.idpizza }) }}" class="btn btn-primary">Editar</a>
+
+                                <a class="sc-add-to-cart btn btn-success btn-sm pull-right" href="{{ path('pizzapedido_agregar_pizza', { 'idpizza': pizza.idpizza }) }}" class="btn btn-primary" >Agregar al carrito</a>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </tr>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {#<script type='text/javascript' src={{asset('asset/js/jquery.easy-gallery.js')}} ></script>#}
+    {#<script type='text/javascript'>#}
+        {#$('.portfolio').easyGallery();#}
+    {#</script>#}
+    {#<script src="src={{asset('asset/js/easyResponsiveTabs.js" type="text/javascript')}}"></script>#}
+    {#<script type="text/javascript">#}
+        {#$(document).ready(function () {#}
+            {#$('#horizontalTab').easyResponsiveTabs({#}
+                {#type: 'default', //Types: default, vertical, accordion#}
+                {#width: 'auto', //auto or any width like 600px#}
+                {#fit: true   // 100% fit in a container#}
+            {#});#}
+        {#});#}
+    {#</script>#}
+
+    {#<script type="text/javascript" src="{{asset('asset/js/numscroller-1.0.js') }}"></script>#}
+
+{% endblock %}

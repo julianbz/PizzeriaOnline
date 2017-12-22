@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Pizza {{ pizza.nombre }}
+            <small>Descripcion</small>
+        </h1>
+        <ol class="breadcrumb">
+            <div class="margin pull-right">
+                <div class="btn-group">
+                    <a href="{{ path('pizza_edit', { 'idpizza': pizza.idpizza }) }}" class="btn btn-primary">Editar</a>
+
+                </div>
+
+                <div class="btn-group">
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-primary" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+        </ol>
+        <br>
+    </section>
+
+
+    <div class="col-xs-6">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th style="width:50%">ID:</th>
+                    <td>{{ pizza.idpizza }}</td>
+                </tr>
+                <tr>
+                    <th>Nombre variedad:</th>
+                    <td>{{ pizza.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Precio:</th>
+                    <td>$ {{ pizza.precio }}</td>
+                </tr>
+                <tr>
+                    <th>Descripcion:</th>
+                    <td>{{ pizza.descripcion }}</td>
+                </tr>
+
+
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Nueva variedad
+            <small>Agregar una nueva pizza</small>
+        </h1>
+    </section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-1">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+            <br>
+                <input class="btn btn-warning" type="submit" value="Create" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+</section>
+
+    <ul>
+        <li>
+            <a href="{{ path('pizza_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

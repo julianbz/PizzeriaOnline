@@ -1,0 +1,46 @@
+Pedido:
+    type: entity
+    table: Pedido
+    indexes:
+        idCliente_idx:
+            columns:
+                - idCliente
+        idEstadoPedido_idx:
+            columns:
+                - idEstadoPedido
+    id:
+        idpedido:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idPedido
+            generator:
+                strategy: IDENTITY
+    fields:
+        fecha:
+            type: date
+            nullable: false
+    manyToOne:
+        idcliente:
+            targetEntity: Cliente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idCliente:
+                    referencedColumnName: idCliente
+            orphanRemoval: false
+        idestadopedido:
+            targetEntity: Estadopedido
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idEstadoPedido:
+                    referencedColumnName: idEstadoPedido
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

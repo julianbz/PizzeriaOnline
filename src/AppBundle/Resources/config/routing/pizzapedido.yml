@@ -1,0 +1,38 @@
+pizzapedido_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Pizzapedido:index" }
+    methods:  GET
+
+pizzapedido_show:
+    path:     /{idpizzapedido}/show
+    defaults: { _controller: "AppBundle:Pizzapedido:show" }
+    methods:  GET
+
+pizzapedido_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Pizzapedido:new" }
+    methods:  [GET, POST]
+
+pizzapedido_edit:
+    path:     /{idpizzapedido}/edit
+    defaults: { _controller: "AppBundle:Pizzapedido:edit" }
+    methods:  [GET, POST]
+
+pizzapedido_delete:
+    path:     /{idpizzapedido}/delete
+    defaults: { _controller: "AppBundle:Pizzapedido:delete" }
+    methods:  DELETE
+
+
+pizzapedido_agregar_pizza:
+    path:     /{idpizza}/agregarpizza
+    defaults: { _controller: "AppBundle:Pizzapedido:agregarPizzaArray" }
+    methods:  POST|GET
+
+pizzapedido_confirma:
+    path: /confirma
+    defaults: { _controller: "AppBundle:Pizzapedido:confirmaPedido" }
+
+pizzapedido_cart:
+    path: /cart
+    defaults: { _controller: "AppBundle:Pizzapedido:verCarrito" }

@@ -1,0 +1,27 @@
+Tamanopizza:
+    type: entity
+    table: TamanoPizza
+    id:
+        idtamanopizza:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idTamanoPizza
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        cantporciones:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: cantPorciones
+    lifecycleCallbacks: {  }

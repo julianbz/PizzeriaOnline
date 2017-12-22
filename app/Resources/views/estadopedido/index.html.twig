@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Estadopedidos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idestadopedido</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for estadopedido in estadopedidos %}
+            <tr>
+                <td><a href="{{ path('estadopedido_show', { 'idestadopedido': estadopedido.idestadopedido }) }}">{{ estadopedido.idestadopedido }}</a></td>
+                <td>{{ estadopedido.nombre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('estadopedido_show', { 'idestadopedido': estadopedido.idestadopedido }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('estadopedido_edit', { 'idestadopedido': estadopedido.idestadopedido }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('estadopedido_new') }}">Create a new estadopedido</a>
+        </li>
+    </ul>
+{% endblock %}

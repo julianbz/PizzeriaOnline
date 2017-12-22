@@ -1,0 +1,21 @@
+AppBundle\Entity\Estadopedido:
+    type: entity
+    table: EstadoPedido
+    id:
+        idestadopedido:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idEstadoPedido
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
